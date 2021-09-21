@@ -7,6 +7,7 @@ class Account:
     def __str__(self):
         return f"Stan konta: {self.balance}$"
 
+
 a = Account(100)
 a.balance = 250
 a.balance = -350
