@@ -10,6 +10,7 @@ class VehicleRegistry:
         return f"{id[:2]}-{''.join(random.choices(string.digits, k=2))}" \
                f"-{''.join(random.choices(string.ascii_uppercase, k=2))}"
 
+
 class Application:
     def register_vehicle(self, brand: string):
         # create a register instance
