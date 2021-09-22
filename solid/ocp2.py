@@ -44,7 +44,7 @@ print("Only large, green products:")
 for item in pf.filter_by_color_and_size(products, "GREEN", "LARGE"):
     print(f"\t{item.name} is green and large.")
 
-# Nie łamiemy OCP
+# Nie łamiemy OCP (ale łamiemy dip)
 class Filter:
     def filter(self, products, spec):
         for item in products:
