@@ -44,3 +44,38 @@ print("Only large, green products:")
 for item in pf.filter_by_color_and_size(products, "GREEN", "LARGE"):
     print(f"\t{item.name} is green and large.")
 
+# Nie łamiemy OCP
+class Filter:
+    def filter(self, products, spec):
+        for item in products:
+            if spec.is_satisfied(item):
+                yield item
+
+
+class ColorSpecification:
+    def __init__(self, color):
+        self.color = color
+
+    def is_satisfied(self, item):
+        return item.color == self.color
+
+
+class SizeSpecification:
+    def __init__(self, size):
+        self.size = size
+
+    def is_satisfied(self, item):
+        return item.size == self.size
+
+
+new_filter = Filter()
+green_spec = ColorSpecification("GREEN")
+
+print("New filter. Only green products:")
+for item in new_filter.filter(products, green_spec):
+    print(f"\t{item.name} is green.")
+
+large_spec = SizeSpecification("LARGE")
+print("New filter. Only large products:")
+for item in new_filter.filter(products, large_spec):
+    print(f"\t{item.name} is large.")
