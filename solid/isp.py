@@ -73,6 +73,29 @@ class PhotoCopier(IPrinter, IScanner):
         print("Drukuję")
 
     def scan(self, document):
-        print("Skaner")
+        print("Skanuję")
+
+
+class MultifunctionalMachine(IPrinter, IScanner, IFax):
+    def print(self, document):
+        print("Drukuję")
+
+    def scan(self, document):
+        print("Skanuję")
+
+    def fax(self, document):
+        print("Faksuję")
+
 
 class IMultifunctionalMachine(IPrinter, IScanner, IFax):
+    @abc.abstractmethod
+    def print(self, document):
+        raise NotImplemented
+
+    @abc.abstractmethod
+    def scan(self, document):
+        raise NotImplemented
+
+    @abc.abstractmethod
+    def fax(self, document):
+        raise NotImplemented
